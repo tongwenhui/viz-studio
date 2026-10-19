@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "viz-studio-skill/trials/data-graphic/replica-case01.html",
+  "entry": "viz-studio-skill/trials/data-graphic/replica-case01.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-21T06:36:09.942Z",
+  "updatedAt": "2026-09-21T06:36:09.942Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

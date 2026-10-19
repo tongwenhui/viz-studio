@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>split-portrait replica case-01</title>
+<style>
+@font-face {
+  font-family: 'Roboto Flex';
+  src: url('../../fonts/english-roboto-flex/RobotoFlex-VF.ttf');
+  font-weight: 100 1000;
+  font-stretch: 25% 151%;
+}
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('../../fonts/source-han-sans/NotoSansSC-VF.ttf');
+  font-weight: 100 1000;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #9a9a9a; }
+.poster {
+  position: relative;
+  width: 1080px;
+  height: 1440px;
+  margin: 0 auto;
+  background: #0b0b0b;
+  overflow: hidden;
+  font-family: 'Roboto Flex', 'Noto Sans SC', sans-serif;
+  color: #ffffff;
+}
+
+/* ─ 烟霭层 ───────────────── */
+.smoke-a {
+  position: absolute; left: 0; top: 0;
+  width: 720px; height: 980px;
+  background: radial-gradient(ellipse 90% 70% at 42% 8%, rgba(122,122,125,.88) 0%, rgba(84,84,86,.46) 42%, rgba(30,30,31,0) 72%);
+}
+.smoke-b {
+  position: absolute; left: 0; top: 560px;
+  width: 640px; height: 640px;
+  background: radial-gradient(ellipse 80% 70% at 30% 55%, rgba(88,88,90,.5) 0%, rgba(40,40,41,0) 70%);
+}
+.glow-bl {
+  position: absolute; left: 0; bottom: 0;
+  width: 620px; height: 420px;
+  background: radial-gradient(ellipse 75% 70% at 12% 100%, rgba(58,96,180,.32) 0%, rgba(30,45,90,.16) 45%, rgba(0,0,0,0) 72%);
+}
+
+/* ─ 人像：右半出血，左缘渐隐入黑 ───────────────── */
+.portrait {
+  position: absolute; right: 0; top: 0;
+  width: 660px; height: 1440px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.75) 26%, #000 52%);
+  mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,.75) 26%, #000 52%);
+}
+.portrait img {
+  position: absolute; right: 0; top: 118px;
+  height: 1035px; width: auto;
+  filter: brightness(.48) contrast(1.1) saturate(.55);
+}
+.portrait-top-fade {
+  position: absolute; right: 0; top: 0;
+  width: 660px; height: 230px;
+  background: linear-gradient(to bottom, #0b0b0b 0%, rgba(11,11,11,.6) 48%, rgba(11,11,11,0) 100%);
+}
+.portrait-fade {
+  position: absolute; right: 0; top: 880px;
+  width: 660px; height: 560px;
+  background: linear-gradient(to bottom, rgba(11,11,11,0) 0%, rgba(11,11,11,.9) 52%, #0b0b0b 100%);
+}
+
+/* ─ 蓝色几何件：顶部实心楔形 + 右侧折带 ───────────────── */
+.geo { position: absolute; left: 0; top: 0; z-index: 4; }
+
+/* ─ 文字层 ───────────────── */
+.logo-box {
+  position: absolute; left: 54px; top: 54px;
+  width: 80px; height: 80px;
+  background: #ffffff;
+  border-radius: 4px;
+  z-index: 6;
+}
+.logo-box svg { position: absolute; left: 12px; top: 14px; }
+.wordmark {
+  position: absolute; left: 152px; top: 54px;
+  height: 80px; display: flex; align-items: center;
+  font-size: 66px; font-weight: 700; letter-spacing: -0.5px;
+  color: #ffffff; z-index: 6;
+}
+.kicker {
+  position: absolute; left: 59px; top: 866px;
+  font-size: 36px; font-weight: 420; line-height: 1;
+  color: #ffffff; z-index: 6;
+}
+.headline {
+  position: absolute; left: 57px; top: 921px;
+  font-size: 126px; font-weight: 540; line-height: 1;
+  font-stretch: 130%;
+  letter-spacing: -1px;
+  color: #ffffff; z-index: 6;
+  white-space: nowrap;
+}
+.disclaimer {
+  position: absolute; left: 57px; top: 1243px;
+  width: 360px;
+  font-size: 28px; font-weight: 400; line-height: 36px;
+  color: #ffffff; z-index: 6;
+}
+
+/* ─ 胶片颗粒（screen 提亮暗部 + multiply 压暗亮部，双层） ───────────────── */
+.grain-s, .grain-m {
+  position: absolute; left: 0; top: 0;
+  width: 1080px; height: 1440px;
+  z-index: 8;
+}
+.grain-s { opacity: .19; mix-blend-mode: screen; }
+.grain-m { opacity: .11; mix-blend-mode: multiply; }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="smoke-a"></div>
+  <div class="smoke-b"></div>
+  <div class="glow-bl"></div>
+
+  <div class="portrait">
+    <img src="../editorial-block/assets/speaker-portrait.jpg" alt="">
+  </div>
+  <div class="portrait-top-fade"></div>
+  <div class="portrait-fade"></div>
+
+  <svg class="geo" width="1080" height="1440" viewBox="0 0 1080 1440">
+    <polygon points="370,0 544,0 522,158" fill="#1070F8"/>
+    <polyline points="1017,390 956,1165 368,1442" fill="none" stroke="#1070F8" stroke-width="45" stroke-miterlimit="8"/>
+  </svg>
+
+  <div class="logo-box">
+    <svg width="56" height="52" viewBox="0 0 56 52">
+      <path d="M4 6 L28 26 L4 46 L14 26 Z" fill="#0b0b0b"/>
+      <path d="M52 6 L28 26 L52 46 L42 26 Z" fill="#0b0b0b"/>
+    </svg>
+  </div>
+  <div class="wordmark">xtb</div>
+
+  <div class="kicker">Kunci Investor Sukses:</div>
+  <div class="headline">Ketangguhan</div>
+  <div class="disclaimer">Investasi memiliki risiko.<br>Berinvestasilah dengan bijak.<br>XTB Indonesia berizin dan<br>diawasi oleh OJK.</div>
+
+  <svg class="grain-s">
+    <filter id="gr1">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <rect width="1080" height="1440" filter="url(#gr1)"/>
+  </svg>
+  <svg class="grain-m">
+    <filter id="gr2">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" seed="7"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <rect width="1080" height="1440" filter="url(#gr2)"/>
+  </svg>
+</div>
+</body>
+</html>

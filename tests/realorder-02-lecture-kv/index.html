@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>北大龙江大讲堂 · 第二讲 KV</title>
+<style>
+@font-face { font-family: 'NotoSansSC'; src: url('../../fonts/source-han-sans/NotoSansSC-VF.ttf'); font-weight: 100 1000; }
+@font-face { font-family: 'EBGaramond'; src: url('../../fonts/english-eb-garamond/EBGaramond-Regular.ttf'); font-weight: 300 800; }
+@font-face { font-family: 'LiyuShoushu'; src: url('../../fonts/liyu-shoushu/LiyuShoushu.ttf'); font-weight: 300 800; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { background: #FAF7F0; }
+.poster {
+  position: relative; width: 1920px; height: 1080px; overflow: hidden;
+  background: #FAF7F0; color: #141414;
+  font-family: 'NotoSansSC', sans-serif;
+}
+.abs { position: absolute; }
+
+/* ── 左：明黄主块 ── */
+.yellow-block { left: 96px; top: 96px; width: 832px; height: 888px; background: #FFF102; }
+
+/* ── 黑章：主办单位 ── */
+.black-seal {
+  left: 48px; top: 48px; width: 192px; height: 192px; background: #141414;
+  color: #FAF7F0; padding: 24px 26px; display: flex; flex-direction: column; justify-content: space-between;
+}
+.seal-tag { font-family: 'EBGaramond', serif; font-size: 13px; letter-spacing: .28em; color: rgba(250,247,240,.62); }
+.seal-name { font-size: 30px; font-weight: 800; line-height: 1.32; letter-spacing: .04em; }
+
+/* ── 北大篆字 + 讲堂名 ── */
+.pku-mark { left: 160px; top: 268px; height: 312px; }
+.lecture-name { left: 156px; top: 610px; font-size: 126px; font-weight: 900; line-height: 1; letter-spacing: .015em; }
+.lecture-sub {
+  left: 160px; top: 770px; font-family: 'EBGaramond', serif;
+  font-size: 18px; font-weight: 600; letter-spacing: .24em; color: #141414;
+}
+
+/* ── 右：纸白区 ── */
+.big-issue {
+  left: 1024px; top: 78px; font-family: 'EBGaramond', serif;
+  font-size: 300px; font-weight: 700; line-height: .92; color: #141414; letter-spacing: -0.01em;
+}
+.vol-hand {
+  left: 1368px; top: 232px; font-family: 'LiyuShoushu', cursive;
+  font-size: 76px; color: #9A0000; transform: rotate(-4deg);
+}
+.vol-hand .vol-en { font-family: 'EBGaramond', serif; font-style: italic; font-size: 26px; letter-spacing: .12em; margin-left: 18px; }
+
+.title-block { left: 1024px; top: 478px; }
+.title-line { font-size: 84px; font-weight: 900; line-height: 1.19; letter-spacing: .01em; }
+.title-chip { display: inline-block; background: #FFF102; padding: 2px 20px 6px; }
+
+.hairline { left: 1024px; top: 836px; width: 740px; height: 2px; background: rgba(20,20,20,.9); }
+.meta-block { left: 1024px; top: 872px; font-size: 22px; line-height: 1.9; color: #141414; }
+.meta-block .meta-key { color: rgba(20,20,20,.55); letter-spacing: .06em; margin-right: 14px; }
+.meta-note { font-size: 16px; color: rgba(20,20,20,.5); letter-spacing: .02em; margin-top: 6px; }
+
+/* ── 右缘黑条 ── */
+.edge-strip { right: 0; top: 0; width: 40px; height: 1080px; background: #141414; }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="abs yellow-block" data-od-id="yellow-block"></div>
+
+  <div class="abs black-seal" data-od-id="host-seal">
+    <div class="seal-tag">HOST</div>
+    <div class="seal-name">黑龙江省<br>教育厅</div>
+  </div>
+
+  <img class="abs pku-mark" src="assets/pku-beida-mark.png" alt="北大" data-od-id="pku-mark">
+  <div class="abs lecture-name" data-od-id="lecture-name">龙江大讲堂</div>
+  <div class="abs lecture-sub" data-od-id="lecture-sub">PEKING UNIVERSITY &middot; LONGJIANG LECTURE</div>
+
+  <div class="abs big-issue" data-od-id="issue-no">02</div>
+  <div class="abs vol-hand" data-od-id="vol-hand">第二讲<span class="vol-en">Vol.II</span></div>
+
+  <div class="abs title-block" data-od-id="title">
+    <div class="title-line">十五五期间</div>
+    <div class="title-line">国际国内经济形势</div>
+    <div class="title-line"><span class="title-chip">与黑龙江的发展</span></div>
+  </div>
+
+  <div class="abs hairline" data-od-id="hairline"></div>
+  <div class="abs meta-block" data-od-id="meta">
+    <div><span class="meta-key">主办单位</span>黑龙江省教育厅</div>
+    <div><span class="meta-key">时间 · 地点</span>待公布</div>
+    <div class="meta-note">具体安排以后续通知为准</div>
+  </div>
+
+  <div class="abs edge-strip" data-od-id="edge-strip"></div>
+</div>
+</body>
+</html>

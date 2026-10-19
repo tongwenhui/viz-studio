@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "viz-studio-skill/trials/tech-air-longform/replica-case01.html",
+  "entry": "viz-studio-skill/trials/tech-air-longform/replica-case01.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-24T03:39:41.978Z",
+  "updatedAt": "2026-09-24T03:39:41.978Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

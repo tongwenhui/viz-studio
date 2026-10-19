@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "viz-studio-skill/tests/realorder-01-invitation/index.html",
+  "entry": "viz-studio-skill/tests/realorder-01-invitation/index.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-10T07:26:36.626Z",
+  "updatedAt": "2026-10-10T07:26:36.626Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

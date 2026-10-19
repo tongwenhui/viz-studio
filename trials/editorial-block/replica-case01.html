@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>editorial-block replica case-01</title>
+<style>
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('../../fonts/source-han-sans/NotoSansSC-VF.ttf');
+  font-weight: 100 1000;
+}
+@font-face {
+  font-family: 'Liyu Shoushu';
+  src: url('../../fonts/liyu-shoushu/LiyuShoushu.ttf');
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../fonts/english-eb-garamond/EBGaramond-Regular.ttf');
+  font-weight: 400;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #9a9a9a; }
+.page {
+  position: relative;
+  width: 1080px;
+  height: 1578px;
+  margin: 0 auto;
+  background: #dddddd;
+  overflow: hidden;
+  font-family: 'Noto Sans SC', sans-serif;
+  color: #1a1a1a;
+}
+
+/* ─ 顶段：黄块 + 黑方 logo + 题组 ───────────────── */
+.block-yellow-top {
+  position: absolute;
+  left: 125px; top: 0;
+  width: 332px; height: 611px;
+  background: #fff102;
+}
+.logo-square {
+  position: absolute;
+  left: 128px; top: 33px;
+  width: 230px; height: 177px;
+  background: #0b0b0b;
+  z-index: 3;
+}
+.logo-square .inner {
+  position: absolute;
+  left: 22px; top: 20px;
+  display: grid;
+  grid-template-columns: 52px 52px;
+  grid-gap: 10px 12px;
+}
+.logo-square .inner span {
+  font-size: 44px;
+  font-weight: 900;
+  color: #ffffff;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+.logo-square .en {
+  position: absolute;
+  left: 22px; bottom: 16px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: 3px;
+}
+.head-group {
+  position: absolute;
+  left: 384px; top: 44px;
+}
+.head-group .kicker {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  border-top: 2px solid #1a1a1a;
+  border-bottom: 2px solid #1a1a1a;
+  padding: 6px 2px;
+  display: inline-block;
+}
+.head-group .main {
+  font-size: 66px;
+  font-weight: 900;
+  letter-spacing: 10px;
+  margin-top: 12px;
+  line-height: 1;
+}
+.school {
+  position: absolute;
+  right: 45px; top: 96px;
+  text-align: right;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  line-height: 1.85;
+}
+.school .boxed {
+  display: inline-block;
+  border: 1px solid #1a1a1a;
+  padding: 0 8px;
+  margin-left: 10px;
+}
+
+/* ─ 日期簇 ───────────────── */
+.session-box {
+  position: absolute;
+  left: 690px; top: 290px;
+  width: 62px; height: 168px;
+  border: 1px solid #1a1a1a;
+  background: rgba(255,255,255,.35);
+  writing-mode: vertical-rl;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 14px;
+  padding-top: 14px;
+  text-align: center;
+}
+.date-meta {
+  position: absolute;
+  left: 768px; top: 296px;
+  width: 267px;
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+}
+.date-meta .time {
+  border: 1px solid #1a1a1a;
+  padding: 2px 7px;
+  font-size: 15px;
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.date-big {
+  position: absolute;
+  right: 45px; top: 348px;
+  font-family: 'EB Garamond', serif;
+  font-size: 106px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  line-height: 1;
+  color: #141414;
+}
+.date-venue {
+  position: absolute;
+  right: 60px; top: 462px;
+  text-align: right;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  line-height: 1.5;
+  z-index: 3;
+}
+
+/* ─ 左缘装饰点列 ───────────────── */
+.dotcol {
+  position: absolute;
+  left: 38px; top: 300px;
+  width: 8px; height: 108px;
+  background-image: radial-gradient(circle, #1a1a1a 2.6px, transparent 2.8px);
+  background-size: 8px 15px;
+  background-repeat: repeat-y;
+}
+.dotcol.two { left: 54px; top: 300px; height: 90px; }
+
+/* ─ 中段：照片 + 右黑条 ───────────────── */
+.photo-wrap {
+  position: absolute;
+  left: 125px; top: 516px;
+  width: 953px; height: 766px;
+  z-index: 1;
+  background: #101010;
+}
+.photo-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: 50% 18%;
+  filter: grayscale(1) brightness(.82) contrast(1.1);
+  display: block;
+}
+.edge-bar {
+  position: absolute;
+  left: 1039px; top: 304px;
+  width: 39px; height: 1218px;
+  background: #0b0b0b;
+  z-index: 2;
+}
+
+/* ─ 手写批注层 ───────────────── */
+.script-line {
+  font-family: 'Liyu Shoushu', cursive;
+  line-height: 1;
+  white-space: nowrap;
+  z-index: 4;
+}
+.script-1 {
+  position: absolute;
+  left: 148px; top: 462px;
+  font-size: 118px;
+  color: #101010;
+  letter-spacing: 6px;
+}
+.script-2 {
+  position: absolute;
+  left: 302px; top: 672px;
+  font-size: 62px;
+  color: #ffffff;
+  letter-spacing: 4px;
+}
+.script-3 {
+  position: absolute;
+  left: 448px; top: 756px;
+  font-size: 62px;
+  color: #ffffff;
+  letter-spacing: 4px;
+}
+
+/* ─ 主讲人黑方 ───────────────── */
+.speaker-panel {
+  position: absolute;
+  left: 90px; top: 929px;
+  width: 224px; height: 225px;
+  background: #0b0b0b;
+  z-index: 3;
+  color: #ffffff;
+}
+.speaker-panel .role {
+  position: absolute;
+  left: 26px; top: 40px;
+  font-size: 19px;
+  font-weight: 500;
+  letter-spacing: 12px;
+}
+.speaker-panel .name {
+  position: absolute;
+  left: 26px; top: 92px;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 6px;
+}
+.speaker-panel .title {
+  position: absolute;
+  left: 26px; bottom: 30px;
+  font-size: 18px;
+  font-weight: 400;
+  letter-spacing: 10px;
+  color: #cccccc;
+}
+
+/* ─ 底段：姓名黄块 + 两栏简介 ───────────────── */
+.block-yellow-name {
+  position: absolute;
+  z-index: 3;
+  left: 128px; top: 1236px;
+  width: 325px; height: 211px;
+  background: #fff102;
+}
+.block-yellow-name .name {
+  position: absolute;
+  left: 30px; bottom: 66px;
+  font-size: 38px;
+  font-weight: 900;
+  letter-spacing: 8px;
+}
+.block-yellow-name .en {
+  position: absolute;
+  left: 30px; bottom: 28px;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 4px;
+}
+.bio-cols {
+  position: absolute;
+  z-index: 3;
+  left: 490px; top: 1315px;
+  width: 545px;
+  column-count: 2;
+  column-gap: 34px;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.6;
+  text-align: justify;
+  color: #222222;
+}
+
+/* ─ 页脚基线 ───────────────── */
+.footer {
+  position: absolute;
+  left: 45px; right: 45px; top: 1546px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer .org {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  color: #333333;
+}
+.footer .brand {
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #1a1a1a;
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="block-yellow-top"></div>
+
+  <div class="logo-square">
+    <div class="inner"><span>整</span><span>修</span><span>計</span><span>畫</span></div>
+    <div class="en">RENOVATION PROJECT</div>
+  </div>
+
+  <div class="head-group">
+    <div class="kicker">資料設計月</div>
+    <div class="main">內部整修</div>
+  </div>
+
+  <div class="school">
+    國立雲林科技大學&nbsp;&nbsp;設計學院<br>
+    105級專題製作<span class="boxed">系列講座</span>
+  </div>
+
+  <div class="session-box">場次五</div>
+  <div class="date-meta">2016&nbsp;Apr<b style="font-weight:700">Wen</b><span class="time">10:00-12:00</span></div>
+  <div class="date-big">04/13</div>
+  <div class="date-venue">國立雲林科技大學<br>設計一館&nbsp;B01教室</div>
+
+  <div class="dotcol"></div>
+  <div class="dotcol two"></div>
+
+  <div class="photo-wrap">
+    <img src="assets/speaker-portrait.jpg" alt="主講人肖像">
+  </div>
+  <div class="edge-bar"></div>
+
+  <div class="script-line script-1">從小丘折返</div>
+  <div class="script-line script-2">一個建築人的</div>
+  <div class="script-line script-3">思考徘徊之旅</div>
+
+  <div class="speaker-panel">
+    <div class="role">主講人</div>
+    <div class="name">孫德鴻</div>
+    <div class="title">建築師</div>
+  </div>
+
+  <div class="block-yellow-name">
+    <div class="name">孫德鴻</div>
+    <div class="en">TE-HUNG SUN</div>
+  </div>
+
+  <div class="bio-cols">
+    出生於1962年，1987年畢業於美國賓州州立大學（GSFA）建築系，1995年創立境向聯合建築師事務所。2002年以三十七歲之齡，以「十三行博物館」一案榮獲國家建築金獎首獎，該案同時獲得遠東建築獎等多項肯定，並獲國家建築金獎之傑出設計成品獎。
+    曾參與「聚」築巢同盟會策展、「下一個胚胎」聯展等建築展覽，並多次發表建築評論文章於專業刊物。2005年受聘國立台北藝術大學講授建築設計，2012年推出《建築的步伐》個人作品集，持續投入建築教育與實務之對話。
+  </div>
+
+  <div class="footer">
+    <div class="org">National Yunlin University of Science and Technology&nbsp;&nbsp;College of Design&nbsp;&nbsp;105th Graduation Project</div>
+    <div class="brand">◎ YunTech</div>
+  </div>
+
+</div>
+</body>
+</html>

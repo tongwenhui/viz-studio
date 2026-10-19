@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>freestyle-01 · 四十道刻度</title>
+<style>
+@font-face{font-family:'Bodoni Moda';src:url('../../fonts/english-bodoni-moda/BodoniModa-VF.ttf') format('truetype');font-weight:100 900;font-style:normal;}
+@font-face{font-family:'Noto Serif SC';src:url('../../fonts/source-han-serif/NotoSerifSC-VF.ttf') format('truetype');font-weight:200 900;font-style:normal;}
+:root{
+  --c-bg:#0f1c30;
+  --c-bg-hi:#182a44;
+  --c-bg-lo:#0a1422;
+  --c-gold:#c9a35c;
+  --c-gold-hi:#e8c98a;
+  --c-ink:#f2ead9;
+  --c-muted:#93a5bd;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{margin:0;background:#000;}
+.poster{position:relative;width:1080px;height:1440px;overflow:hidden;
+  background:radial-gradient(ellipse 920px 1150px at 50% 40%,var(--c-bg-hi) 0%,var(--c-bg) 52%,var(--c-bg-lo) 100%);
+  font-family:'Noto Serif SC',serif;}
+.star{position:absolute;border-radius:50%;background:var(--c-gold);}
+.kicker{position:absolute;top:84px;left:0;width:100%;text-align:center;
+  font-family:'Bodoni Moda',serif;font-weight:400;font-variation-settings:'opsz' 96,'wght' 400;
+  font-size:25px;letter-spacing:.52em;text-indent:.52em;color:var(--c-gold);}
+.letterhead{position:absolute;top:130px;left:0;width:100%;text-align:center;
+  font-size:25px;font-weight:400;letter-spacing:.18em;text-indent:.18em;color:var(--c-muted);}
+.dial{position:absolute;left:90px;top:150px;width:900px;height:900px;}
+.dial svg{display:block;}
+.core{position:absolute;left:540px;top:600px;transform:translate(-50%,-52%);text-align:center;}
+.numeral{font-family:'Bodoni Moda',serif;font-weight:400;font-variation-settings:'opsz' 96,'wght' 400;
+  font-size:285px;line-height:.8;color:var(--c-gold-hi);}
+.core-sub{margin-top:28px;font-family:'Bodoni Moda',serif;font-weight:400;
+  font-size:17px;letter-spacing:.46em;text-indent:.46em;color:var(--c-gold);}
+.couplet{position:absolute;top:1058px;left:0;width:100%;text-align:center;
+  font-weight:600;line-height:1.16;}
+.couplet .l1{display:block;font-size:94px;color:var(--c-ink);letter-spacing:.08em;text-indent:.08em;}
+.couplet .l2{display:block;font-size:94px;color:var(--c-gold-hi);letter-spacing:.08em;text-indent:.08em;}
+.bottom-rule{position:absolute;top:1312px;left:50%;transform:translateX(-50%);
+  width:160px;height:1px;background:var(--c-gold);opacity:.45;}
+.date{position:absolute;top:1334px;left:0;width:100%;text-align:center;
+  font-size:29px;font-weight:500;letter-spacing:.08em;text-indent:.08em;color:var(--c-ink);}
+</style>
+</head>
+<body>
+<div class="poster">
+  <i class="star" style="left:1011px;top:990px;width:1.2px;height:1.2px;opacity:0.24"></i>
+  <i class="star" style="left:59px;top:1273px;width:1.2px;height:1.2px;opacity:0.31"></i>
+  <i class="star" style="left:1011px;top:395px;width:1.7px;height:1.7px;opacity:0.18"></i>
+  <i class="star" style="left:1015px;top:357px;width:1.6px;height:1.6px;opacity:0.36"></i>
+  <i class="star" style="left:931px;top:299px;width:2.1px;height:2.1px;opacity:0.36"></i>
+  <i class="star" style="left:1039px;top:1270px;width:1.3px;height:1.3px;opacity:0.26"></i>
+  <i class="star" style="left:96px;top:892px;width:1.7px;height:1.7px;opacity:0.30"></i>
+  <i class="star" style="left:120px;top:926px;width:1.1px;height:1.1px;opacity:0.36"></i>
+  <i class="star" style="left:842px;top:1062px;width:1.1px;height:1.1px;opacity:0.33"></i>
+  <i class="star" style="left:223px;top:204px;width:1.6px;height:1.6px;opacity:0.38"></i>
+  <i class="star" style="left:283px;top:1157px;width:1.9px;height:1.9px;opacity:0.39"></i>
+  <i class="star" style="left:73px;top:373px;width:2.0px;height:2.0px;opacity:0.23"></i>
+  <i class="star" style="left:67px;top:1223px;width:1.7px;height:1.7px;opacity:0.21"></i>
+  <i class="star" style="left:982px;top:207px;width:2.1px;height:2.1px;opacity:0.30"></i>
+  <i class="star" style="left:777px;top:1112px;width:1.4px;height:1.4px;opacity:0.30"></i>
+  <i class="star" style="left:209px;top:216px;width:1.1px;height:1.1px;opacity:0.38"></i>
+
+  <div class="kicker">INVITATION</div>
+  <div class="letterhead">东方剑桥教育集团 · 中山实验中学</div>
+
+  <div class="dial">
+    <svg width="900" height="900" viewBox="0 0 900 900">
+      <circle cx="450" cy="450" r="448" fill="none" style="stroke:var(--c-gold)" stroke-width="1" opacity="0.06"/>
+      <circle cx="450" cy="450" r="424" fill="none" style="stroke:var(--c-gold)" stroke-width="1" opacity="0.10"/>
+      <circle cx="450" cy="450" r="372" fill="none" style="stroke:var(--c-gold)" stroke-width="1.5" opacity="0.32"/>
+      <circle cx="450" cy="450" r="252" fill="none" style="stroke:var(--c-gold)" stroke-width="1" opacity="0.18"/>
+      <g style="stroke:var(--c-gold)">
+        <line x1="475.3" y1="129.0" x2="477.6" y2="99.1" stroke-width="3" opacity="0.9"/>
+        <line x1="527.0" y1="129.1" x2="531.2" y2="111.6" stroke-width="2" opacity="0.5"/>
+        <line x1="576.3" y1="145.1" x2="583.2" y2="128.5" stroke-width="2" opacity="0.5"/>
+        <line x1="622.4" y1="168.6" x2="631.8" y2="153.3" stroke-width="2" opacity="0.5"/>
+        <line x1="664.3" y1="199.1" x2="676.0" y2="185.4" stroke-width="2" opacity="0.5"/>
+        <line x1="700.9" y1="235.7" x2="714.6" y2="224.0" stroke-width="2" opacity="0.5"/>
+        <line x1="731.4" y1="277.6" x2="746.7" y2="268.2" stroke-width="2" opacity="0.5"/>
+        <line x1="754.9" y1="323.7" x2="771.5" y2="316.8" stroke-width="2" opacity="0.5"/>
+        <line x1="770.9" y1="373.0" x2="788.4" y2="368.8" stroke-width="2" opacity="0.5"/>
+        <line x1="779.0" y1="424.1" x2="796.9" y2="422.7" stroke-width="2" opacity="0.5"/>
+        <line x1="771.0" y1="475.3" x2="800.9" y2="477.6" stroke-width="3" opacity="0.9"/>
+        <line x1="770.9" y1="527.0" x2="788.4" y2="531.2" stroke-width="2" opacity="0.5"/>
+        <line x1="754.9" y1="576.3" x2="771.5" y2="583.2" stroke-width="2" opacity="0.5"/>
+        <line x1="731.4" y1="622.4" x2="746.7" y2="631.8" stroke-width="2" opacity="0.5"/>
+        <line x1="700.9" y1="664.3" x2="714.6" y2="676.0" stroke-width="2" opacity="0.5"/>
+        <line x1="664.3" y1="700.9" x2="676.0" y2="714.6" stroke-width="2" opacity="0.5"/>
+        <line x1="622.4" y1="731.4" x2="631.8" y2="746.7" stroke-width="2" opacity="0.5"/>
+        <line x1="576.3" y1="754.9" x2="583.2" y2="771.5" stroke-width="2" opacity="0.5"/>
+        <line x1="527.0" y1="770.9" x2="531.2" y2="788.4" stroke-width="2" opacity="0.5"/>
+        <line x1="475.9" y1="779.0" x2="477.3" y2="796.9" stroke-width="2" opacity="0.5"/>
+        <line x1="424.7" y1="771.0" x2="422.4" y2="800.9" stroke-width="3" opacity="0.9"/>
+        <line x1="373.0" y1="770.9" x2="368.8" y2="788.4" stroke-width="2" opacity="0.5"/>
+        <line x1="323.7" y1="754.9" x2="316.8" y2="771.5" stroke-width="2" opacity="0.5"/>
+        <line x1="277.6" y1="731.4" x2="268.2" y2="746.7" stroke-width="2" opacity="0.5"/>
+        <line x1="235.7" y1="700.9" x2="224.0" y2="714.6" stroke-width="2" opacity="0.5"/>
+        <line x1="199.1" y1="664.3" x2="185.4" y2="676.0" stroke-width="2" opacity="0.5"/>
+        <line x1="168.6" y1="622.4" x2="153.3" y2="631.8" stroke-width="2" opacity="0.5"/>
+        <line x1="145.1" y1="576.3" x2="128.5" y2="583.2" stroke-width="2" opacity="0.5"/>
+        <line x1="129.1" y1="527.0" x2="111.6" y2="531.2" stroke-width="2" opacity="0.5"/>
+        <line x1="121.0" y1="475.9" x2="103.1" y2="477.3" stroke-width="2" opacity="0.5"/>
+        <line x1="129.0" y1="424.7" x2="99.1" y2="422.4" stroke-width="3" opacity="0.9"/>
+        <line x1="129.1" y1="373.0" x2="111.6" y2="368.8" stroke-width="2" opacity="0.5"/>
+        <line x1="145.1" y1="323.7" x2="128.5" y2="316.8" stroke-width="2" opacity="0.5"/>
+        <line x1="168.6" y1="277.6" x2="153.3" y2="268.2" stroke-width="2" opacity="0.5"/>
+        <line x1="199.1" y1="235.7" x2="185.4" y2="224.0" stroke-width="2" opacity="0.5"/>
+        <line x1="235.7" y1="199.1" x2="224.0" y2="185.4" stroke-width="2" opacity="0.5"/>
+        <line x1="277.6" y1="168.6" x2="268.2" y2="153.3" stroke-width="2" opacity="0.5"/>
+        <line x1="323.7" y1="145.1" x2="316.8" y2="128.5" stroke-width="2" opacity="0.5"/>
+        <line x1="373.0" y1="129.1" x2="368.8" y2="111.6" stroke-width="2" opacity="0.5"/>
+        <line x1="424.1" y1="121.0" x2="422.7" y2="103.1" stroke-width="2" opacity="0.5"/>
+      </g>
+      <text x="481.1" y="63" text-anchor="start" font-family="Bodoni Moda" font-size="25" letter-spacing="2" style="fill:var(--c-gold)">2026</text>
+      <text x="418.9" y="63" text-anchor="end" font-family="Bodoni Moda" font-size="25" letter-spacing="2" style="fill:var(--c-gold)">1986</text>
+      <path d="M450,98 C451.5,106.5 453.5,108.5 462,110 C453.5,111.5 451.5,113.5 450,122 C448.5,113.5 446.5,111.5 438,110 C446.5,108.5 448.5,106.5 450,98 Z" style="fill:var(--c-gold-hi)"/>
+    </svg>
+  </div>
+
+  <div class="core">
+    <div class="numeral">40</div>
+    <div class="core-sub">FORTIETH ANNIVERSARY</div>
+  </div>
+
+  <div class="couplet">
+    <span class="l1">念念不忘</span>
+    <span class="l2">肆拾回响</span>
+  </div>
+
+  <div class="bottom-rule"></div>
+  <div class="date">2026 年 9 月 14 日</div>
+</div>
+</body>
+</html>

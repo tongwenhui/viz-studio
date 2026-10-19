@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>真单03 · 东方剑桥教育集团年会邀请函 · veil-glow A</title>
+<style>
+@font-face {
+  font-family: 'Noto Serif SC';
+  src: url('../../fonts/source-han-serif/NotoSerifSC-VF.ttf') format('truetype');
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Liyu Shoushu';
+  src: url('../../fonts/liyu-shoushu/LiyuShoushu.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../fonts/english-eb-garamond/EBGaramond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+:root {
+  --c-veil-top: #e8e9ec;
+  --c-veil-mid: #faf6ee;
+  --c-glow: #f3d5c8;
+  --c-silk-deep: #c01208;
+  --c-silk-mid: #d0301f;
+  --c-silk-light: #e97864;
+  --c-accent: #f43b16;
+  --c-brush: #ef1f06;
+  --c-paper: #ffffff;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { margin: 0; overflow: hidden; background: #dcdcdc; }
+.poster {
+  position: relative;
+  width: 1080px; height: 2340px;
+  margin: 0 auto;
+  overflow: hidden;
+  font-family: 'Noto Serif SC', 'Songti SC', serif;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+/* 纱幕第1层：银天 */
+.veil {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, #e8e9ec 0%, #efedea 24%, #f7f1e6 40%, #f6e3d3 50%, #eec7bb 56%, #f3d5c8 62%, #f3d5c8 100%);
+}
+/* 纱幕第2层：红绸 */
+.silk {
+  position: absolute; left: 0; right: 0; top: 52.5%; height: 48%;
+  background: linear-gradient(175deg, #f2d4c8 0%, #dd4a38 12%, #c4180e 32%, #cf2f1e 54%, #e2503a 76%, #ea7a66 96%, #eda094 100%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0, #000 16%);
+  mask-image: linear-gradient(180deg, transparent 0, #000 16%);
+}
+/* 纱幕第3层：绸面横纹（两层错周期 + 柔焦） */
+.silk-lines-a, .silk-lines-b {
+  position: absolute; left: 0; right: 0; top: 52%; height: 48%;
+  filter: blur(7px);
+}
+.silk-lines-a {
+  background: repeating-linear-gradient(180deg, rgba(255,255,255,0) 0 34px, rgba(255,255,255,.13) 34px 40px, rgba(255,255,255,0) 40px 74px, rgba(90,0,0,.15) 74px 84px);
+  opacity: .7;
+}
+.silk-lines-b {
+  background: repeating-linear-gradient(181deg, rgba(255,255,255,0) 0 52px, rgba(255,240,235,.10) 52px 60px, rgba(70,0,0,.12) 60px 108px);
+  opacity: .7;
+}
+/* 纱幕第4层：亮银光带 + 地平线辉光 + 柔焦斑 */
+.streak {
+  position: absolute; left: 0; right: 0; top: 1660px; height: 110px;
+  background:
+    radial-gradient(80% 130% at 62% 50%, rgba(255,255,255,.6), rgba(255,255,255,0) 70%),
+    linear-gradient(180deg, rgba(255,255,255,0), rgba(255,255,255,.78) 50%, rgba(255,255,255,0));
+  filter: blur(14px);
+}
+.horizon-glow {
+  position: absolute; left: 0; right: 0; top: 1160px; height: 260px;
+  background: radial-gradient(58% 48% at 50% 50%, rgba(255,140,110,.5), rgba(255,140,110,0) 72%);
+  filter: blur(12px);
+}
+.blob { position: absolute; border-radius: 50%; filter: blur(60px); }
+.blob-a { width: 560px; height: 300px; left: 80px; top: 320px; background: rgba(255,255,255,.5); }
+.blob-b { width: 640px; height: 260px; right: 60px; top: 120px; background: rgba(255,255,255,.42); }
+
+/* 幽灵英文层：全宽出血，退后 */
+.ghost {
+  position: absolute; top: 178px; left: 0; width: 100%;
+  font-family: 'EB Garamond', 'Didot', serif;
+  font-size: 130px; line-height: 1; letter-spacing: .22em;
+  color: rgba(255,255,255,.58);
+  text-align: center; white-space: nowrap;
+}
+.kicker {
+  position: absolute; top: 396px; left: 0; width: 100%;
+  font-size: 76px; font-weight: 700; line-height: 1;
+  letter-spacing: .58em; text-indent: .58em;
+  color: var(--c-accent);
+  text-align: center; white-space: nowrap;
+}
+.brush {
+  position: absolute; top: 496px; left: 0; width: 100%;
+  font-family: 'Liyu Shoushu', 'LXGW WenKai', 'Kaiti SC', serif;
+  font-size: 640px; line-height: 1; font-weight: 400;
+  color: var(--c-brush);
+  text-align: center;
+}
+.subtitle {
+  position: absolute; top: 1178px; left: 0; width: 100%;
+  font-size: 56px; font-weight: 600; line-height: 1;
+  letter-spacing: .32em; text-indent: .32em;
+  color: var(--c-accent);
+  text-align: center; white-space: nowrap;
+}
+/* 底部信息双栏 */
+.info {
+  position: absolute; top: 1755px; left: 76px; right: 76px;
+  display: flex; justify-content: space-between;
+  color: var(--c-paper);
+  text-shadow: 0 2px 14px rgba(110,10,0,.28);
+}
+.col-left { width: 42%; margin-top: 34px; }
+.col-left .val { white-space: nowrap; }
+.lbl { font-size: 30px; font-weight: 400; letter-spacing: .04em; color: rgba(255,255,255,.85); }
+.val { margin-top: 14px; font-size: 40px; font-weight: 600; letter-spacing: .02em; }
+.blk + .blk { margin-top: 64px; }
+.col-right { width: 50%; }
+</style>
+</head>
+<body>
+<div class="poster" data-od-id="veil-glow-realorder-03">
+  <div class="veil" aria-hidden="true"></div>
+  <div class="blob blob-a" aria-hidden="true"></div>
+  <div class="blob blob-b" aria-hidden="true"></div>
+  <div class="silk" aria-hidden="true"></div>
+  <div class="silk-lines-a" aria-hidden="true"></div>
+  <div class="silk-lines-b" aria-hidden="true"></div>
+  <div class="horizon-glow" aria-hidden="true"></div>
+  <div class="streak" aria-hidden="true"></div>
+
+  <div class="ghost" data-od-id="ghost-word">INVITATION</div>
+  <h1 class="kicker" data-od-id="kicker">念念不忘</h1>
+  <div class="brush" data-od-id="brush-char">邀</div>
+  <p class="subtitle" data-od-id="subtitle">肆拾回响</p>
+
+  <div class="info" data-od-id="info-zone">
+    <div class="col-left" data-od-id="col-venue-time">
+      <div class="blk">
+        <div class="lbl">[地点ADD]</div>
+        <div class="val">中山实验中学</div>
+      </div>
+      <div class="blk">
+        <div class="lbl">[时间TIME]</div>
+        <div class="val">2026年9月14日</div>
+      </div>
+    </div>
+    <div class="col-right" data-od-id="col-host">
+      <div class="blk">
+        <div class="lbl">[主办HOST]</div>
+        <div class="val">东方剑桥教育集团</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

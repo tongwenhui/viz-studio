@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "viz-studio-skill/trials/ivory-gold/replica-case01.html",
+  "entry": "viz-studio-skill/trials/ivory-gold/replica-case01.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-08T02:15:47.208Z",
+  "updatedAt": "2026-10-08T02:15:47.208Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "viz-studio-skill/trials/tech-beam-dark/replica-case01.html",
+  "entry": "viz-studio-skill/trials/tech-beam-dark/replica-case01.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-09-21T04:29:50.157Z",
+  "updatedAt": "2026-09-21T04:29:50.157Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<title>zen-collage 试做 · case-01 复刻</title>
+<style>
+  @font-face { font-family:"EBG"; src:url("../../fonts/english-eb-garamond/EBGaramond-Regular.ttf"); }
+  @font-face { font-family:"HansSerif"; src:url("../../fonts/source-han-serif/NotoSerifSC-VF.ttf"); font-weight:100 900; }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:#e9e9e9; }
+  .poster { position:relative; width:1080px; height:2340px; margin:0 auto; background:#ffffff;
+    font-family:"HansSerif",serif; color:#0a0a0a;
+    -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility; }
+  .abs { position:absolute; }
+  .eb { font-family:"EBG",Georgia,serif; }
+
+  /* ---------- 等高线路径层 ---------- */
+  .contour { left:0; top:0; z-index:1; }
+
+  /* ---------- 照片块（顶缘渐隐） ---------- */
+  .photo-wrap { left:46px; top:820px; width:994px; height:782px; z-index:2; }
+  .photo-scene { position:absolute; left:0; top:0; display:block;
+    width:994px; height:782px; object-fit:cover;
+    -webkit-mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 230px);
+            mask-image:linear-gradient(180deg,rgba(0,0,0,0) 0,#000 230px); }
+  .sun { position:absolute; left:405px; top:130px; width:172px; height:172px;
+    border-radius:50%; background:#f86160; }
+  .papercut { position:absolute; left:0; top:0; }
+
+  /* ---------- 文字层 ---------- */
+  .badge { left:51px; top:66px; width:90px; height:90px; border-radius:50%;
+    background:#0a0a0a; color:#fff; display:flex; align-items:center; justify-content:center;
+    font-size:21px; letter-spacing:2px; }
+  .headcaps { left:0; width:1116px; top:64px; text-align:center; font-size:21px;
+    line-height:39px; letter-spacing:.06em; text-transform:uppercase; color:#161616; }
+  .r1d { left:414px; top:170px; font-family:"Times New Roman",Times,serif;
+    font-size:145px; line-height:1; }
+  .r1c { left:678px; top:184px; font-size:115px; line-height:1; font-weight:500; letter-spacing:1px; }
+  .sidecap { font-size:23px; line-height:26px; letter-spacing:.05em; text-transform:uppercase;
+    text-align:right; color:#1a1a1a; }
+  .r1caps { right:48px; top:122px; }
+  .r2 { left:586px; top:322px; font-size:115px; line-height:1; font-weight:400; letter-spacing:1px; }
+  .r3 { left:295px; top:466px; font-size:172px; line-height:1; font-weight:600; letter-spacing:-3px; }
+  .gcap { right:52px; top:670px; font-size:20px; line-height:27px; letter-spacing:.06em;
+    text-transform:uppercase; text-align:right; color:#1a1a1a; }
+  .d2025 { left:46px; top:1695px; font-family:"Times New Roman",Times,serif; font-size:64px; line-height:1; }
+  .dxc { left:414px; top:1640px; font-size:115px; line-height:1; font-weight:600; letter-spacing:1px; }
+  .dcap { left:665px; top:1694px; text-align:left; }
+  .dj { left:812px; top:1640px; font-size:115px; line-height:1; font-weight:600; letter-spacing:1px; }
+  .date520 { left:48px; top:1752px; font-family:"Times New Roman",Times,serif; font-size:86px; line-height:1; }
+  .gaoding2 { left:49px; top:1864px; font-size:23px; line-height:25px; letter-spacing:.06em;
+    text-transform:uppercase; color:#1a1a1a; }
+  .invite { left:235px; top:1832px; font-size:64px; line-height:1; font-weight:500; letter-spacing:2px; }
+  .camp { left:343px; top:1904px; line-height:88px; white-space:nowrap; }
+  .camp .br { font-size:80px; font-weight:400; vertical-align:middle; }
+  .camp .cn { font-size:66px; font-weight:600; letter-spacing:1px; vertical-align:middle; }
+  .poem { right:51px; top:1838px; font-size:36px; line-height:72px; font-weight:400;
+    text-align:right; letter-spacing:1px; }
+  .foot-l { left:46px; top:2105px; font-size:25px; line-height:98px; font-weight:400; }
+  .foot-r { right:54px; top:2105px; font-size:25px; line-height:98px; font-weight:400; text-align:right; }
+  .phtext { left:0; top:690px; font-size:82px; line-height:1; font-weight:500; color:#ffffff;
+    transform:scaleX(1.8); transform-origin:left center; letter-spacing:3px; white-space:nowrap; }
+</style>
+</head>
+<body>
+<div class="poster" data-od-id="zc-poster">
+
+  <svg class="abs contour" width="1080" height="2340" viewBox="0 0 1080 2340">
+    <defs>
+      <linearGradient id="cfade" x1="0" y1="0" x2="1080" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#3a3a3a"/><stop offset=".82" stop-color="#3a3a3a"/>
+        <stop offset="1" stop-color="#3a3a3a" stop-opacity="0"/>
+      </linearGradient>
+    </defs>
+    <path d="M0,266 L59,377 L105,492 L158,640 L240,803 L420,807 L542,830 L706,841 L804,867 L919,857 L1024,873"
+      fill="none" stroke="url(#cfade)" stroke-width="1.25"/>
+    <circle cx="123" cy="521" r="15" fill="#ffffff" stroke="#3a3a3a" stroke-width="3"/>
+    <circle cx="123" cy="521" r="5" fill="#3a3a3a"/>
+    <text transform="rotate(90 55 520)" x="55" y="520" class="eb" font-size="12.5"
+      letter-spacing="1.8" fill="#3a3a3a">SHANYE LAIXIN</text>
+  </svg>
+
+  <div class="abs photo-wrap" data-od-id="zc-photo">
+    <!-- 照片：Wikimedia Commons "Breath of the Mountains" © Nuiza11, CC BY-SA 4.0（裁切+调色允许，需署名） -->
+    <img class="photo-scene" src="assets/mist-layers.jpg" alt="雾中层叠山脊 · 实景摄影">
+
+    <div class="sun"></div>
+
+    <svg class="papercut" width="994" height="782" viewBox="0 0 994 782">
+      <defs>
+        <linearGradient id="pcm" x1="0" y1="0" x2="0" y2="782" gradientUnits="userSpaceOnUse">
+          <stop offset="0" stop-color="#ffffff"/><stop offset=".44" stop-color="#ffffff"/>
+          <stop offset=".62" stop-color="#ffffff" stop-opacity="0"/>
+        </linearGradient>
+        <mask id="pcmask"><rect width="994" height="782" fill="url(#pcm)"/></mask>
+      </defs>
+      <g mask="url(#pcmask)">
+        <polygon points="30,500 120,262 240,500" fill="#f0f3f6"/>
+        <polygon points="52,500 266,148 360,500" fill="#fdfdfe"/>
+        <polygon points="266,148 360,500 430,500" fill="#e6ebf1"/>
+        <polygon points="266,148 430,500 496,500" fill="#d9e0e7"/>
+        <polygon points="643,500 775,230 840,500" fill="#fdfdfe"/>
+        <polygon points="775,230 840,500 880,500" fill="#e6ebf1"/>
+        <polygon points="775,230 880,500 906,500" fill="#d9e0e7"/>
+      </g>
+    </svg>
+
+    <div class="abs phtext">当城市渐远</div>
+  </div>
+
+  <div class="abs badge">稿定</div>
+  <div class="abs headcaps eb">2025ZHIRANLIAOYUJIHUA<br>SHANYELAIXIN</div>
+
+  <div class="abs r1d">2025</div>
+  <div class="abs r1c">自然</div>
+  <div class="abs sidecap r1caps eb">SHANYE<br>LAIXIN</div>
+  <div class="abs r2">疗愈计划</div>
+  <div class="abs r3">山野:来信</div>
+  <div class="abs gcap eb">GAODING<br>(2025)</div>
+
+  <div class="abs d2025">2025.</div>
+  <div class="abs dxc">星辰</div>
+  <div class="abs sidecap dcap eb">SHANYE<br>LAIXIN</div>
+  <div class="abs dj">渐近</div>
+
+  <div class="abs date520">5.20</div>
+  <div class="abs gaoding2 eb">GAO<br>DING</div>
+  <div class="abs invite">让我们相约</div>
+  <div class="abs camp"><span class="br">{</span><span class="cn">森林营地</span><span class="br">}</span></div>
+  <div class="abs poem">在苔痕斑驳的清晨煮茶<br>用长满野花的傍晚写诗</div>
+
+  <div class="abs foot-l">扫码<br>预约通道</div>
+  <svg class="abs" style="left:460px; top:2096px;" width="157" height="157" viewBox="0 0 25 25" shape-rendering="crispEdges">
+    <rect width="25" height="25" fill="#ffffff"/>
+    <g fill="#0a0a0a">
+      <path d="M0,0h7v7h-7z M1,1v5h5v-5z M2,2h3v3h-3z"/>
+      <path d="M18,0h7v7h-7z M19,1v5h5v-5z M20,2h3v3h-3z"/>
+      <path d="M0,18h7v7h-7z M1,19v5h5v-5z M2,20h3v3h-3z"/>
+      <path d="M9,0h1v1h-1z M11,1h2v1h-2z M14,0h1v2h-1z M9,3h2v1h-2z M12,3h1v2h-1z M15,3h1v1h-1z M9,5h1v2h-1z M11,5h3v1h-3z M14,6h2v1h-2z"/>
+      <path d="M0,9h2v1h-2z M3,10h1v2h-1z M0,12h1v2h-1z M2,13h2v1h-2z M5,9h2v1h-2z M5,12h1v2h-1z M1,15h2v1h-2z M4,15h1v1h-1z"/>
+      <path d="M8,8h1v2h-1z M10,9h2v1h-2z M13,8h1v1h-1z M15,9h2v2h-2z M12,11h2v1h-2z M8,12h2v1h-2z M16,12h1v2h-1z M10,13h1v2h-1z M13,14h2v1h-2z M8,15h1v1h-1z M15,15h1v1h-1z"/>
+      <path d="M18,9h1v2h-1z M21,8h1v1h-1z M23,9h1v2h-1z M19,11h2v1h-2z M22,12h2v1h-2z M18,13h1v2h-1z M20,14h2v1h-2z M24,14h1v1h-1z M19,16h1v1h-1z M22,16h2v1h-2z"/>
+      <path d="M9,18h1v2h-1z M11,17h2v1h-2z M14,18h1v2h-1z M9,21h2v1h-2z M12,21h1v2h-1z M15,20h1v2h-1z M10,23h3v1h-3z M14,23h1v1h-1z"/>
+      <path d="M18,18h2v1h-2z M21,19h1v2h-1z M23,18h2v1h-2z M18,21h1v2h-1z M20,22h2v1h-2z M23,22h1v1h-1z M19,24h3v1h-3z"/>
+    </g>
+  </svg>
+  <div class="abs foot-r">春日野宴席位<br>限量开启</div>
+
+</div>
+</body>
+</html>

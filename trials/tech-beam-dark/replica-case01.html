@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>tech-beam-dark 试做 · case-01 复刻</title>
+<style>
+@font-face {
+  font-family: 'Roboto Flex';
+  src: url('../../fonts/english-roboto-flex/RobotoFlex-VF.ttf') format('truetype');
+  font-weight: 100 1000;
+  font-display: swap;
+}
+:root {
+  --c-bg: #151628;
+  --c-bg-lift: #232533;
+  --c-glow-warm: #6f275e;
+  --c-ink: #ffffff;
+  --c-muted: rgba(255,255,255,.78);
+  --c-primary: #2276ed;
+  --c-accent: #ee1005;
+  --beam-royal: #1328ab;
+  --beam-blue: #2156c1;
+  --beam-indigo: #5b63df;
+  --beam-peri: #a6b8ef;
+  --beam-cyan: #46aacc;
+  --beam-red: #d4363e;
+  --beam-dark-red: #941a3f;
+  --beam-mauve: #c678ab;
+  --beam-peach: #fdcf9f;
+  --band-blue: #74aade;
+  --band-gold: #d8a874;
+  --band-red: #d1636e;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #0b0c16; }
+.poster {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1920px;
+  height: 1080px;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  font-family: 'Roboto Flex', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--c-ink);
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+  background:
+    radial-gradient(1400px 620px at 50% 108%, rgba(111,39,94,.55), transparent 62%),
+    radial-gradient(1100px 520px at 12% 74%, rgba(19,40,171,.42), transparent 60%),
+    radial-gradient(1100px 520px at 88% 70%, rgba(212,54,62,.38), transparent 60%),
+    radial-gradient(900px 420px at 50% 40%, rgba(35,37,51,.9), transparent 70%),
+    linear-gradient(180deg, var(--c-bg) 0%, #1a1c30 38%, var(--c-bg-lift) 58%, #1c1a2e 100%);
+}
+@page { size: 1920px 1080px; margin: 0; }
+@media print {
+  html, body { width: 1920px; height: 1080px; overflow: hidden; background: var(--c-bg); }
+  .poster { left: 0; top: 0; transform: none; }
+}
+.fan { position: absolute; left: 960px; top: 664px; z-index: 1; }
+.beam {
+  position: absolute;
+  left: 0; top: 0;
+  transform-origin: 0 50%;
+  border-radius: 999px;
+}
+.fan.left .beam, .fan.right .beam { background: linear-gradient(90deg, var(--b) 0%, var(--b) 52%, transparent 100%); }
+
+.star { position: absolute; left: 960px; top: 664px; z-index: 3; }
+.star .halo {
+  position: absolute; left: -310px; top: -310px;
+  width: 620px; height: 620px; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,.27) 0%, rgba(255,255,255,.07) 42%, transparent 66%);
+}
+.star .anamorphic {
+  position: absolute; left: -770px; top: -26px;
+  width: 1540px; height: 52px; border-radius: 50%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255,255,255,.17), transparent 70%);
+}
+.star .flare-h {
+  position: absolute; left: -570px; top: -1.5px;
+  width: 1140px; height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.98) 42% 58%, transparent);
+}
+.star .flare-v {
+  position: absolute; left: -1.5px; top: -170px;
+  width: 3px; height: 340px;
+  background: linear-gradient(180deg, transparent, rgba(255,255,255,.95) 42% 58%, transparent);
+}
+.star .flare-d1, .star .flare-d2 {
+  position: absolute; left: -210px; top: -1px;
+  width: 420px; height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.6), transparent);
+}
+.star .flare-d1 { transform: rotate(45deg); }
+.star .flare-d2 { transform: rotate(-45deg); }
+.star .core {
+  position: absolute; left: -46px; top: -46px;
+  width: 92px; height: 92px; border-radius: 50%;
+  background: radial-gradient(circle, #ffffff 0%, rgba(255,255,255,.85) 30%, rgba(255,255,255,.3) 52%, transparent 72%);
+}
+.ground {
+  position: absolute; left: 960px; top: 700px; z-index: 2;
+  width: 1100px; height: 220px; transform: translateX(-50%);
+  background: radial-gradient(50% 50% at 50% 30%, rgba(255,255,255,.14), transparent 70%);
+}
+.streak {
+  position: absolute; z-index: 1;
+  height: 1px; width: 560px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+}
+
+.top {
+  position: absolute; left: 0; right: 0; top: 0; z-index: 10;
+  display: flex; flex-direction: column; align-items: center;
+}
+.brandrow {
+  margin-top: 92px;
+  display: flex; align-items: center; gap: 30px;
+}
+.brandrow .wordmark {
+  font-size: 66px; font-weight: 800; letter-spacing: .05em; line-height: 1;
+}
+.brandrow .sep { width: 1px; height: 56px; background: rgba(255,255,255,.6); }
+.rings { display: flex; }
+.rings i {
+  width: 38px; height: 38px; border: 3px solid rgba(255,255,255,.92); border-radius: 50%;
+  margin-left: -9px;
+}
+.rings i:first-child { margin-left: 0; }
+.brandcap { margin-top: 16px; font-size: 19px; font-weight: 400; color: var(--c-muted); letter-spacing: .02em; }
+.headline {
+  margin-top: 96px;
+  font-size: 64px; line-height: 1.15; letter-spacing: .015em;
+  white-space: nowrap;
+}
+.headline b { font-weight: 800; }
+.headline span { font-weight: 300; margin-left: 22px; }
+.metaline {
+  margin-top: 34px;
+  display: flex; align-items: center; gap: 13px;
+  font-size: 29px; font-weight: 600; line-height: 1.2;
+}
+.metaline.loc { margin-top: 20px; font-weight: 400; font-size: 27px; color: rgba(255,255,255,.94); }
+.metaline svg { flex: none; }
+
+.exp { position: absolute; left: 0; right: 0; top: 812px; z-index: 10; text-align: center; }
+.exp .lead { font-size: 26px; font-weight: 400; color: rgba(255,255,255,.92); }
+.band {
+  margin-top: 32px;
+  display: flex; justify-content: center; align-items: stretch; gap: 56px;
+}
+.band .col {
+  font-size: 27px; font-weight: 600; line-height: 1.32; text-align: center;
+}
+.band .col + .col { border-left: 1px solid rgba(255,255,255,.4); padding-left: 56px; }
+.band .c1 { color: var(--band-blue); }
+.band .c2 { color: var(--band-gold); }
+.band .c3 { color: var(--band-red); }
+.foot {
+  position: absolute; left: 0; right: 0; top: 1002px; z-index: 10;
+  text-align: center; font-size: 20px; font-weight: 400; color: rgba(255,255,255,.8);
+  font-variant-numeric: tabular-nums;
+}
+</style>
+</head>
+<body>
+<div class="poster" data-od-id="tech-beam-dark-trial">
+
+  <div class="streak" style="left:60px; top:150px; transform:rotate(24deg);" data-od-id="deco-streak-a"></div>
+  <div class="streak" style="right:40px; top:120px; transform:rotate(-18deg);" data-od-id="deco-streak-b"></div>
+  <div class="streak" style="right:210px; top:210px; transform:rotate(-28deg); opacity:.6;" data-od-id="deco-streak-c"></div>
+
+  <div class="fan left" data-od-id="beam-fan-left">
+    <div class="beam" style="--b:var(--beam-royal);   width:980px; height:56px; transform:rotate(197deg);   filter:blur(10px); opacity:.95;"></div>
+    <div class="beam" style="--b:var(--beam-blue);    width:965px; height:32px; transform:rotate(193.5deg); filter:blur(4px);"></div>
+    <div class="beam" style="--b:var(--beam-peri);    width:950px; height:26px; transform:rotate(190deg);   filter:blur(7px); opacity:.72;"></div>
+    <div class="beam" style="--b:var(--beam-indigo);  width:940px; height:24px; transform:rotate(186.5deg); filter:blur(3px);"></div>
+    <div class="beam" style="--b:var(--beam-cyan);    width:930px; height:28px; transform:rotate(183deg);   filter:blur(3px);"></div>
+    <div class="beam" style="--b:var(--beam-peri);    width:920px; height:24px; transform:rotate(179.5deg); filter:blur(6px); opacity:.7;"></div>
+    <div class="beam" style="--b:var(--beam-blue);    width:910px; height:46px; transform:rotate(176deg);   filter:blur(8px); opacity:.92;"></div>
+    <div class="beam" style="--b:var(--beam-indigo);  width:900px; height:20px; transform:rotate(172.5deg);"></div>
+    <div class="beam" style="--b:var(--beam-royal);   width:890px; height:38px; transform:rotate(169deg);   filter:blur(6px); opacity:.9;"></div>
+    <div class="beam" style="--b:var(--beam-cyan);    width:880px; height:22px; transform:rotate(165.5deg); filter:blur(4px);"></div>
+    <div class="beam" style="--b:var(--beam-peri);    width:870px; height:28px; transform:rotate(162deg);   filter:blur(7px); opacity:.72;"></div>
+    <div class="beam" style="--b:var(--beam-royal);   width:850px; height:26px; transform:rotate(158.5deg); filter:blur(5px); opacity:.85;"></div>
+  </div>
+  <div class="fan right" data-od-id="beam-fan-right">
+    <div class="beam" style="--b:var(--beam-dark-red); width:850px; height:26px; transform:rotate(22deg);    filter:blur(6px); opacity:.9;"></div>
+    <div class="beam" style="--b:var(--beam-red);      width:870px; height:48px; transform:rotate(18deg);    filter:blur(8px); opacity:.95;"></div>
+    <div class="beam" style="--b:var(--beam-peach);    width:885px; height:26px; transform:rotate(14.5deg); filter:blur(7px); opacity:.7;"></div>
+    <div class="beam" style="--b:var(--beam-mauve);    width:900px; height:26px; transform:rotate(11deg);    filter:blur(4px);"></div>
+    <div class="beam" style="--b:var(--beam-red);      width:915px; height:30px; transform:rotate(7.5deg);  filter:blur(3px);"></div>
+    <div class="beam" style="--b:var(--beam-peach);    width:930px; height:24px; transform:rotate(4deg);     filter:blur(6px); opacity:.7;"></div>
+    <div class="beam" style="--b:var(--beam-red);      width:940px; height:42px; transform:rotate(0.5deg);  filter:blur(6px); opacity:.95;"></div>
+    <div class="beam" style="--b:var(--beam-mauve);    width:945px; height:18px; transform:rotate(-3deg);"></div>
+    <div class="beam" style="--b:var(--beam-peach);    width:950px; height:26px; transform:rotate(-6.5deg); filter:blur(6px); opacity:.7;"></div>
+    <div class="beam" style="--b:var(--beam-red);      width:940px; height:34px; transform:rotate(-10deg);  filter:blur(7px); opacity:.9;"></div>
+    <div class="beam" style="--b:var(--beam-dark-red); width:925px; height:22px; transform:rotate(-13.5deg); filter:blur(4px); opacity:.9;"></div>
+    <div class="beam" style="--b:var(--beam-mauve);    width:905px; height:14px; transform:rotate(-17deg);   filter:blur(2px); opacity:.85;"></div>
+  </div>
+
+  <div class="ground"></div>
+  <div class="star" data-od-id="star-core">
+    <div class="halo"></div>
+    <div class="anamorphic"></div>
+    <div class="flare-h"></div>
+    <div class="flare-v"></div>
+    <div class="flare-d1"></div>
+    <div class="flare-d2"></div>
+    <div class="core"></div>
+  </div>
+
+  <header class="top" data-od-id="header-block">
+    <div class="brandrow" data-od-id="brand-row">
+      <div class="wordmark">TCL</div>
+      <div class="sep"></div>
+      <div class="rings" aria-hidden="true"><i></i><i></i><i></i></div>
+    </div>
+    <div class="brandcap">Worldwide Olympic Partner</div>
+    <h1 class="headline" data-od-id="headline"><b>INSPIRE GREATNESS</b><span>Join TCL at CES 2026!</span></h1>
+    <div class="metaline" data-od-id="date-line">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      <span>January 6-9, 2026</span>
+    </div>
+    <div class="metaline loc" data-od-id="location-line">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Las Vegas Convention Center, Central Hall, Booth #18604</span>
+    </div>
+  </header>
+
+  <section class="exp" data-od-id="experience-band">
+    <div class="lead">At the booth, you&rsquo;ll experience:</div>
+    <div class="band">
+      <div class="col c1">Display the<br>Future</div>
+      <div class="col c2">Next-Gen Display<br>Innovations</div>
+      <div class="col c3">Full Portfolio of<br>AI-Powered Devices</div>
+    </div>
+  </section>
+
+  <footer class="foot" data-od-id="footer-line">We look forward to seeing you in Las Vegas!</footer>
+</div>
+<script>
+(function () {
+  var p = document.querySelector('.poster');
+  function fit() {
+    var s = Math.min(window.innerWidth / 1920, window.innerHeight / 1080);
+    p.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+})();
+</script>
+</body>
+</html>

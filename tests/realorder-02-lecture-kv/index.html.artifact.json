@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "viz-studio-skill/tests/realorder-02-lecture-kv/index.html",
+  "entry": "viz-studio-skill/tests/realorder-02-lecture-kv/index.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-13T07:03:38.236Z",
+  "updatedAt": "2026-10-13T07:03:38.236Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

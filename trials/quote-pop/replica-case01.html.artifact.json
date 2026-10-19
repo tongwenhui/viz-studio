@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "viz-studio-skill/trials/quote-pop/replica-case01.html",
+  "entry": "viz-studio-skill/trials/quote-pop/replica-case01.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "createdAt": "2026-10-10T03:47:53.485Z",
+  "updatedAt": "2026-10-10T03:47:53.485Z",
+  "metadata": {
+    "inferred": true,
+    "reconciled": true
+  }
+}

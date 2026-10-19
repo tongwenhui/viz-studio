@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>silk-flare 试做 · case-01 复刻</title>
+<style>
+@font-face {
+  font-family: 'Noto Serif SC';
+  src: url('../../fonts/source-han-serif/NotoSerifSC-VF.ttf') format('truetype');
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../fonts/english-eb-garamond/EBGaramond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  font-style: italic;
+  src: url('../../fonts/english-eb-garamond/EBGaramond-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+:root {
+  --c-ink: #fdfae8;
+  --c-ink-cn: #eee4c8;
+  --c-ink-soft: #ffddce;
+  --c-primary: #c00d06;
+  --c-muted: rgba(255, 235, 225, 0.72);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #dcdcdc; }
+.poster {
+  position: absolute; left: 50%; top: 50%;
+  width: 1080px; height: 2400px;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  font-family: 'Noto Serif SC', 'Songti SC', serif;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+/* 丝绒幕布：三段式纵向渐变（分册 §2 实测 stops） */
+.bg {
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg,
+    #8c0201 0%, #850203 5%, #570801 14%, #490104 30%, #330100 40%,
+    #260000 50%, #190002 58%, #160002 63%, #570100 69%, #8f0100 75%,
+    #a30001 86%, #cc0003 93%, #d70000 100%);
+}
+/* 金绸上盘：失焦光圈——椭圆轮廓可辨、亮核偏右下、右缘出血（分册 §7 配方 v3） */
+.disc-a, .ribbon-b {
+  position: absolute; border-radius: 50%;
+}
+.disc-a {
+  width: 340px; height: 340px; right: -50px; top: 495px;
+  background: radial-gradient(50% 50% at 58% 62%, #d4981a 0%, #d1961e 45%, #a45e00 66%, rgba(100, 28, 0, 0.5) 82%, transparent 95%);
+  filter: blur(16px);
+}
+/* 金绸下带：铜色绸面，顶缘较实（分册 §7 配方 v3） */
+.ribbon-b {
+  left: 300px; right: -200px; height: 300px; top: 1410px;
+  background: radial-gradient(50% 50% at 55% 40%, #c07a1e 0%, #a85408 38%, rgba(122, 32, 0, 0.55) 62%, rgba(70, 14, 0, 0.3) 80%, transparent 94%);
+  transform: rotate(-7deg);
+  filter: blur(20px);
+}
+.crest-glow {
+  position: absolute; left: 60px; width: 700px; height: 200px; top: 1560px;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255, 150, 80, 0.20), transparent 72%);
+  filter: blur(30px);
+  border-radius: 50%;
+}
+/* 顶部 caps 行 */
+.caps-row {
+  position: absolute; top: 172px; left: 92px; right: 92px;
+  display: flex; justify-content: space-between;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 22px; letter-spacing: 0.32em;
+  color: rgba(250, 240, 213, 0.78);
+}
+/* 巨标组 */
+.en-title {
+  position: absolute; top: 330px; left: 88px; width: 960px;
+  font-family: 'EB Garamond', 'Didot', serif;
+  font-size: 200px; line-height: 1.04;
+  color: var(--c-ink);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+.cn-title {
+  position: absolute; top: 572px; left: 92px;
+  font-size: 68px; font-weight: 600; line-height: 1.1;
+  letter-spacing: 0.16em;
+  color: var(--c-ink-cn);
+}
+.pill {
+  position: absolute; top: 706px; left: 92px;
+  background: var(--c-primary); color: #fff;
+  font-size: 25px; letter-spacing: 0.22em; text-indent: 0.1em;
+  padding: 15px 38px 15px 48px; border-radius: 999px;
+}
+/* 诗行正文 */
+.poem {
+  position: absolute; top: 848px; left: 92px;
+  font-size: 26px; font-weight: 300; line-height: 2.0;
+  letter-spacing: 0.08em;
+  color: var(--c-muted);
+}
+.poem-en {
+  position: absolute; top: 1128px; left: 92px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 20px; line-height: 1.9;
+  color: rgba(255, 235, 225, 0.5);
+}
+/* TIME / DATE 组 */
+.sched { position: absolute; top: 1252px; left: 92px; color: var(--c-ink); }
+.sched .lbl {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 22px; letter-spacing: 0.3em;
+  color: rgba(253, 250, 232, 0.75);
+}
+.sched .year { margin-top: 12px; font-size: 24px; letter-spacing: 0.2em; color: rgba(253, 250, 232, 0.85); }
+.sched .date {
+  margin-top: 10px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-variant-numeric: lining-nums;
+  font-size: 104px; line-height: 1;
+  color: var(--c-ink);
+}
+.sched .hours { margin-top: 14px; font-size: 30px; letter-spacing: 0.12em; color: rgba(255, 245, 235, 0.88); font-variant-numeric: tabular-nums; }
+.sched .add { margin-top: 66px; }
+.sched .add .venue { margin-top: 14px; font-size: 34px; font-weight: 500; letter-spacing: 0.1em; color: var(--c-ink-soft); }
+/* 倒计时 */
+.countdown {
+  position: absolute; top: 1668px; left: 480px; width: 508px;
+  text-align: center; color: var(--c-ink);
+}
+.countdown .cn { font-size: 28px; letter-spacing: 0.24em; color: rgba(255, 240, 228, 0.9); }
+.countdown .num {
+  font-family: 'EB Garamond', Georgia, serif; font-style: italic;
+  font-size: 84px; line-height: 1; margin: 6px 0 0 6px; display: inline-block;
+}
+.countdown .unit { font-family: 'EB Garamond', Georgia, serif; font-size: 26px; letter-spacing: 0.14em; margin-left: 12px; }
+/* Invitation 收尾组（居中于 x≈0.67） */
+.invite {
+  position: absolute; top: 1812px; left: 300px; right: 60px;
+  text-align: center; color: #fffffb;
+}
+.invite .en {
+  font-family: 'EB Garamond', 'Didot', serif;
+  font-size: 118px; line-height: 1;
+}
+.invite .cn { margin-top: 26px; font-size: 42px; font-weight: 500; letter-spacing: 0.5em; text-indent: 0.5em; }
+.invite .cta { margin-top: 40px; font-size: 26px; letter-spacing: 0.14em; color: rgba(255, 240, 230, 0.85); }
+/* 页脚带 */
+.footer-band {
+  position: absolute; top: 2090px; left: 0; right: 0; height: 170px;
+  background: linear-gradient(90deg, #b51414, #c01818);
+  display: flex; align-items: center;
+  padding: 0 80px; gap: 44px;
+  color: #fff;
+}
+.footer-band .brand { font-family: 'EB Garamond', Georgia, serif; font-size: 26px; letter-spacing: 0.14em; white-space: nowrap; }
+.footer-band .sep { width: 1px; height: 56px; background: rgba(255, 255, 255, 0.4); }
+.footer-band .col { font-family: 'EB Garamond', Georgia, serif; font-size: 16px; letter-spacing: 0.15em; line-height: 1.7; color: rgba(255, 255, 255, 0.88); }
+</style>
+</head>
+<body>
+<div class="poster" data-od-id="silk-flare-trial">
+  <div class="bg" aria-hidden="true"></div>
+  <div class="disc-a" aria-hidden="true"></div>
+  <div class="ribbon-b" aria-hidden="true"></div>
+  <div class="crest-glow" aria-hidden="true"></div>
+
+  <div class="caps-row" data-od-id="caps-row">
+    <span>BRAND DESIGN</span><span>INVITATION</span><span>GRAND CEREMONY</span>
+  </div>
+  <h1 class="en-title" data-od-id="en-title">Reinvigorat</h1>
+  <div class="cn-title" data-od-id="cn-title">新启·向未来</div>
+  <div class="pill" data-od-id="pill">品牌启幕盛典</div>
+
+  <div class="poem" data-od-id="poem">
+    是双方内在的共振<br>
+    是超越意义的组合<br>
+    不止精神共鸣<br>
+    更是时代对话<br>
+    共同谱写一场美学艺术盛典
+  </div>
+  <div class="poem-en" data-od-id="poem-en">
+    Reinvigorating beauty through souls<br>
+    Together in unity as aesthetic art ceremony
+  </div>
+
+  <div class="sched" data-od-id="sched">
+    <div class="lbl">TIME</div>
+    <div class="year">2024</div>
+    <div class="date">03/25</div>
+    <div class="hours">14:00—17:00</div>
+    <div class="add">
+      <div class="lbl">ADD</div>
+      <div class="venue">鸿源酒店美学艺术馆</div>
+    </div>
+  </div>
+
+  <div class="countdown" data-od-id="countdown">
+    <span class="cn">倒计时</span>
+    <span class="num">2</span><span class="unit">days</span>
+  </div>
+
+  <div class="invite" data-od-id="invite-group">
+    <div class="en">Invitation</div>
+    <div class="cn">邀请函</div>
+    <div class="cta">新启·向未来发布会，等你来体验</div>
+  </div>
+
+  <div class="footer-band" data-od-id="footer-band">
+    <div class="brand">BEAUTY INDUSTRY</div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="col">CREATIVE<br>INSPIRATION</div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="col">POTENT BREEZE<br>VISUAL IMPACT</div>
+    <div class="sep" aria-hidden="true"></div>
+    <div class="col">SEQUENCE HAVE<br>BE DOWN TO ETERNITY</div>
+  </div>
+</div>
+<script>
+(function () {
+  var p = document.querySelector('.poster');
+  function fit() {
+    var s = Math.min(window.innerWidth / 1080, window.innerHeight / 2400);
+    p.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>organic-sweep 试做 · case-01 复刻</title>
+<style>
+@font-face {
+  font-family: 'Noto Sans SC';
+  src: url('../../fonts/source-han-sans/NotoSansSC-VF.ttf') format('truetype');
+  font-weight: 100 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../fonts/english-eb-garamond/EBGaramond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'LXGW WenKai';
+  src: url('../../fonts/lxgw-wenkai/LXGWWenKai-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #dcdcdc; }
+.poster {
+  position: relative;
+  margin: 0 auto;
+  width: 1080px; height: 1620px;
+  overflow: hidden;
+  background: #fdfdfa;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+svg { display: block; }
+</style>
+</head>
+<body>
+<div class="poster">
+<svg width="1080" height="1620" viewBox="0 0 1080 1620" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <linearGradient id="fieldBase" gradientUnits="userSpaceOnUse" x1="540" y1="0" x2="400" y2="1620">
+    <stop offset="0" stop-color="#66b71d"/>
+    <stop offset="0.38" stop-color="#4cb026"/>
+    <stop offset="0.7" stop-color="#2f9e22"/>
+    <stop offset="1" stop-color="#0f8b19"/>
+  </linearGradient>
+  <radialGradient id="cream" gradientUnits="userSpaceOnUse" cx="120" cy="70" r="340">
+    <stop offset="0" stop-color="#fff366" stop-opacity="0.6"/>
+    <stop offset="0.5" stop-color="#fffdd4" stop-opacity="0.3"/>
+    <stop offset="1" stop-color="#fffdd4" stop-opacity="0"/>
+  </radialGradient>
+  <filter id="soft" x="-5%" y="-5%" width="110%" height="110%">
+    <feGaussianBlur stdDeviation="2"/>
+  </filter>
+  <filter id="b8" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="8"/></filter>
+  <filter id="b12" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="12"/></filter>
+  <filter id="b16" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="16"/></filter>
+  <filter id="b30" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="30"/></filter>
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.8" numOctaves="2" stitchTiles="stitch"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.55 0.55 0.55 0 0"/>
+  </filter>
+  <filter id="grainL">
+    <feTurbulence type="fractalNoise" baseFrequency="0.7" numOctaves="2" stitchTiles="stitch" seed="7"/>
+    <feColorMatrix type="matrix" values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0.35 0.35 0.35 0 0"/>
+  </filter>
+</defs>
+
+<g filter="url(#soft)">
+  <rect x="-40" y="-40" width="1160" height="1700" fill="url(#fieldBase)"/>
+
+  <g filter="url(#b30)" opacity="0.32" fill="#0c7d1a">
+    <path d="M388,340 L200,560 L120,440 Z"/>
+    <path d="M388,340 L300,760 L180,680 Z"/>
+    <path d="M388,340 L480,820 L380,860 Z"/>
+    <path d="M388,340 L620,720 L540,820 Z"/>
+    <path d="M900,120 L1000,260 L920,300 Z"/>
+    <path d="M960,200 L1050,320 L970,360 Z"/>
+  </g>
+
+  <path d="M1080,0 L890,0 C920,60 980,95 1080,110 Z" fill="#ffee0a" filter="url(#b8)"/>
+
+  <g fill="none" filter="url(#b30)" stroke="#b8d412">
+    <circle cx="-860" cy="0" r="1200" stroke-width="64"/>
+    <path d="M700,290 C668,340 630,410 600,466 C640,515 672,548 702,578 C740,617 762,647 784,673 C810,707 826,737 843,768 C860,802 873,832 885,863 C896,897 903,927 908,958 C913,1000 914,1042 915,1080 C906,1112 893,1142 878,1170 C856,1216 826,1252 800,1290 C762,1322 722,1352 690,1380 C668,1422 648,1462 640,1500 L640,1620 L1012,1620 C1000,1542 992,1472 988,1408 C1010,1362 1032,1326 1050,1290 C1066,1246 1076,1200 1080,1150 L1080,1040 C1073,1006 1065,972 1056,940 C1042,908 1028,876 1012,845 C994,813 972,781 949,750 C922,718 894,686 863,655 C828,623 792,591 754,560 C712,528 667,498 622,470 C668,428 692,360 700,290 Z" />
+    <path d="M1080,126 C940,160 800,215 700,285 C800,300 950,305 1080,300 Z" />
+    <path d="M388,340 C480,390 560,430 598,468 L608,476 C560,436 480,395 388,348 Z" stroke-width="90"/>
+    <path d="M0,1371 C174,1404 300,1425 427,1431 C554,1415 680,1353 806,1277 C880,1250 950,1225 1080,1190" stroke-width="70"/>
+    <path d="M1080,1260 C980,1290 900,1330 870,1420 C850,1500 890,1570 960,1620 L1080,1620 Z" stroke-width="60"/>
+  </g>
+  <g fill="none" filter="url(#b12)" stroke="#ffee0a">
+    <circle cx="-860" cy="0" r="1200" stroke-width="26"/>
+    <path d="M700,290 C668,340 630,410 600,466 C640,515 672,548 702,578 C740,617 762,647 784,673 C810,707 826,737 843,768 C860,802 873,832 885,863 C896,897 903,927 908,958 C913,1000 914,1042 915,1080 C906,1112 893,1142 878,1170 C856,1216 826,1252 800,1290 C762,1322 722,1352 690,1380 C668,1422 648,1462 640,1500 L640,1620 L1012,1620 C1000,1542 992,1472 988,1408 C1010,1362 1032,1326 1050,1290 C1066,1246 1076,1200 1080,1150 L1080,1040 C1073,1006 1065,972 1056,940 C1042,908 1028,876 1012,845 C994,813 972,781 949,750 C922,718 894,686 863,655 C828,623 792,591 754,560 C712,528 667,498 622,470 C668,428 692,360 700,290 Z" />
+    <path d="M1080,126 C940,160 800,215 700,285 C800,300 950,305 1080,300 Z" />
+    <path d="M388,340 C480,390 560,430 598,468 L608,476 C560,436 480,395 388,348 Z" stroke-width="28"/>
+    <path d="M0,1371 C174,1404 300,1425 427,1431 C554,1415 680,1353 806,1277 C880,1250 950,1225 1080,1190" stroke-width="26"/>
+    <path d="M1080,1260 C980,1290 900,1330 870,1420 C850,1500 890,1570 960,1620 L1080,1620 Z" stroke-width="24"/>
+  </g>
+  <path d="M388,340 L356,0 L394,0 Z" fill="#ffee0a" stroke="#ffee0a" stroke-width="8" filter="url(#b8)"/>
+
+  <g fill="#fdfdfa">
+    <circle cx="-860" cy="0" r="1200"/>
+    <path d="M700,290 C668,340 630,410 600,466 C640,515 672,548 702,578 C740,617 762,647 784,673 C810,707 826,737 843,768 C860,802 873,832 885,863 C896,897 903,927 908,958 C913,1000 914,1042 915,1080 C906,1112 893,1142 878,1170 C856,1216 826,1252 800,1290 C762,1322 722,1352 690,1380 C668,1422 648,1462 640,1500 L640,1620 L1012,1620 C1000,1542 992,1472 988,1408 C1010,1362 1032,1326 1050,1290 C1066,1246 1076,1200 1080,1150 L1080,1040 C1073,1006 1065,972 1056,940 C1042,908 1028,876 1012,845 C994,813 972,781 949,750 C922,718 894,686 863,655 C828,623 792,591 754,560 C712,528 667,498 622,470 C668,428 692,360 700,290 Z" />
+    <path d="M1080,126 C940,160 800,215 700,285 C800,300 950,305 1080,300 Z" />
+    <path d="M388,340 C480,390 560,430 598,468 L608,476 C560,436 480,395 388,348 Z"/>
+    <path d="M388,340 L356,0 L394,0 Z"/>
+    <path d="M0,1371 C174,1404 300,1425 427,1431 C554,1415 680,1353 806,1277 C880,1250 950,1225 1080,1190 L1080,1620 L0,1620 Z"/>
+  </g>
+
+  <path d="M0,0 L330,0 C270,75 140,110 0,115 Z" fill="#ffee0a" filter="url(#b8)"/>
+  <path d="M1080,1085 C1020,1120 1000,1180 1015,1235 C1040,1270 1060,1300 1080,1320 Z" fill="#2f9e22"/>
+  <ellipse cx="120" cy="70" rx="330" ry="270" fill="url(#cream)" opacity="0.9"/>
+
+  <path d="M1080,1260 C980,1290 900,1330 870,1420 C850,1500 890,1570 960,1620 L1080,1620 Z" fill="#028619"/>
+</g>
+
+<g font-family="LXGW WenKai, KaiTi, cursive" fill="#fdfdfa" text-anchor="middle" font-size="48">
+  <text x="139" y="868">草</text>
+  <text x="139" y="925">草</text>
+  <text x="139" y="982">戲</text>
+  <text x="139" y="1039">劇</text>
+  <text x="139" y="1096">節</text>
+</g>
+<g font-family="Noto Sans SC, sans-serif" font-weight="800" font-size="14" letter-spacing="2" fill="#fdfdfa">
+  <text transform="translate(80,830) rotate(90)">GRASSRAW</text>
+  <text transform="translate(102,830) rotate(90)">FESTIVAL</text>
+</g>
+<g transform="rotate(-12 225 778)">
+  <ellipse cx="225" cy="778" rx="59" ry="40" fill="none" stroke="#ffee0a" stroke-width="2.5"/>
+  <text x="225" y="792" text-anchor="middle" font-family="Noto Sans SC, sans-serif" font-weight="900" font-size="36" fill="#ffee0a">15</text>
+  <text x="272" y="746" font-family="Noto Sans SC, sans-serif" font-weight="800" font-size="18" fill="#ffee0a">th</text>
+</g>
+<g font-family="Noto Sans SC, sans-serif" font-weight="900" fill="#ffee0a" style="filter:drop-shadow(0 0 18px rgba(255,238,10,0.45))">
+  <text x="42" y="1254" font-size="185" textLength="215" lengthAdjust="spacingAndGlyphs">回</text>
+  <text x="292" y="1331" font-size="145" textLength="163" lengthAdjust="spacingAndGlyphs">歸</text>
+  <text x="467" y="1360" font-size="152" textLength="130" lengthAdjust="spacingAndGlyphs">線</text>
+</g>
+<g fill="#ffee0a">
+  <text x="43" y="1350" font-family="Noto Sans SC, sans-serif" font-weight="900" font-size="102" textLength="280" lengthAdjust="spacingAndGlyphs">Return of</text>
+  <rect x="418" y="1360" width="160" height="6" rx="3" transform="rotate(-2 418 1363)"/>
+</g>
+
+<g fill="#1b1b1b">
+  <text x="38" y="1510" font-family="Times New Roman, Georgia, serif" font-size="35">2023</text>
+  <text x="38" y="1548" font-family="EB Garamond, Georgia, serif" font-size="30" letter-spacing="3">MARCH</text>
+  <text x="150" y="1505" font-family="Noto Sans SC, sans-serif" font-weight="600" font-size="20">三月</text>
+  <rect x="206" y="1480" width="1" height="88" fill="#1b1b1b" opacity="0.3"/>
+  <g font-family="Noto Sans SC, sans-serif" font-weight="600" font-size="16" text-anchor="middle">
+    <text x="266" y="1490">六</text>
+    <text x="350" y="1490">日</text>
+    <text x="434" y="1490">六</text>
+    <text x="518" y="1490">日</text>
+  </g>
+  <g font-family="Times New Roman, Georgia, serif" font-size="55">
+    <text x="234" y="1560">11</text>
+    <text x="318" y="1560">12</text>
+    <text x="402" y="1560">18</text>
+    <text x="486" y="1560">19</text>
+  </g>
+  <rect x="597" y="1480" width="1" height="88" fill="#1b1b1b" opacity="0.3"/>
+  <text x="609" y="1512" font-family="Noto Sans SC, sans-serif" font-weight="500" font-size="24">11:00–17:00</text>
+  <text x="609" y="1548" font-family="Noto Sans SC, sans-serif" font-weight="500" font-size="20">嘉義縣表演藝術中心</text>
+  <rect x="797" y="1480" width="1" height="88" fill="#1b1b1b" opacity="0.3"/>
+  <text x="811" y="1490" font-family="Noto Sans SC, sans-serif" font-weight="600" font-size="17" letter-spacing="1">現場票</text>
+  <text x="811" y="1560" font-family="Times New Roman, Georgia, serif" font-size="66" textLength="90" lengthAdjust="spacingAndGlyphs">$120</text>
+  <text x="907" y="1558" font-family="Noto Sans SC, sans-serif" font-weight="500" font-size="17">/天</text>
+  <rect x="914" y="1480" width="1" height="88" fill="#1b1b1b" opacity="0.3"/>
+  <text x="933" y="1490" font-family="Noto Sans SC, sans-serif" font-weight="600" font-size="17" letter-spacing="1">預售票</text>
+  <text x="933" y="1560" font-family="Times New Roman, Georgia, serif" font-size="66" textLength="90" lengthAdjust="spacingAndGlyphs">$180</text>
+  <text x="1029" y="1558" font-family="Noto Sans SC, sans-serif" font-weight="500" font-size="17">/天</text>
+</g>
+
+<rect x="0" y="0" width="1080" height="1620" filter="url(#grain)" opacity="0.5" style="mix-blend-mode:soft-light"/>
+<rect x="0" y="0" width="1080" height="1620" filter="url(#grainL)" opacity="0.3" style="mix-blend-mode:screen"/>
+</svg>
+</div>
+</body>
+</html>

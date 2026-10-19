@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>newchinese 试做 · case-01 复刻</title>
+<style>
+@font-face {
+  font-family: 'Noto Serif SC';
+  src: url('../../fonts/source-han-serif/NotoSerifSC-VF.ttf') format('truetype');
+  font-weight: 200 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'EB Garamond';
+  src: url('../../fonts/english-eb-garamond/EBGaramond-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Liyu Shoushu';
+  src: url('../../fonts/liyu-shoushu/LiyuShoushu.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+:root {
+  --c-bg: #4a6051;
+  --c-ink: #efebdc;
+  --c-ink-dim: #dce0cd;
+  --c-watermark: rgba(255, 255, 255, 0.07);
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { width: 100%; height: 100%; overflow: hidden; background: #dcdcdc; }
+.poster {
+  position: absolute; left: 50%; top: 50%;
+  width: 1080px; height: 1540px;
+  transform: translate(-50%, -50%);
+  overflow: hidden;
+  background: var(--c-bg);
+  font-family: 'Noto Serif SC', 'Songti SC', serif;
+  print-color-adjust: exact;
+  -webkit-print-color-adjust: exact;
+}
+/* §7 书法水印：双字对角布位，部分出血，压底不压读 */
+.wm-a, .wm-b {
+  position: absolute;
+  font-family: 'Liyu Shoushu', 'Kaiti SC', cursive;
+  color: var(--c-watermark);
+  line-height: 1;
+  z-index: 1;
+  white-space: nowrap;
+}
+.wm-a { font-size: 620px; left: -110px; top: 30px; }
+.wm-b { font-size: 780px; right: -170px; bottom: -210px; }
+/* §5 单左轴 x=391 */
+.axis { position: absolute; left: 391px; z-index: 2; }
+/* §4 巨字矩阵：258px / 行高1.0 / 字距0.04em */
+.mega {
+  top: 55px;
+  font-size: 258px; font-weight: 600; line-height: 1.0;
+  letter-spacing: 0.04em;
+  color: var(--c-ink);
+}
+/* 展名行 + 英文副标 */
+.name { top: 680px; font-size: 50px; font-weight: 600; letter-spacing: 0.04em; color: var(--c-ink); }
+.name-en {
+  top: 746px;
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 39px; line-height: 1.32;
+  color: rgba(236, 240, 225, 0.9);
+}
+/* §7 「标签/」信息组 */
+.meta { color: var(--c-ink-dim); width: 689px; height: 1540px; }
+.meta .lbl {
+  position: absolute; left: 0;
+  font-size: 19px; font-weight: 400; letter-spacing: 0.18em;
+  color: rgba(220, 224, 205, 0.85);
+}
+.meta .val {
+  position: absolute; left: 0;
+  font-size: 46px; font-weight: 600; letter-spacing: 0.04em;
+  color: var(--c-ink-dim);
+}
+.meta .d-lbl { top: 964px; }
+.meta .d-val { top: 981px; }
+.meta .t-lbl { top: 1052px; }
+.meta .t-val { top: 1071px; }
+.meta .p-lbl { top: 1141px; }
+.meta .venue { position: absolute; left: 0; top: 1162px; font-size: 31px; font-weight: 500; letter-spacing: 0.06em; }
+.meta .addr { position: absolute; left: 0; top: 1204px; font-size: 26px; font-weight: 300; letter-spacing: 0; white-space: nowrap; }
+/* 票务行：压底 46px */
+.tickets {
+  top: 1357px;
+  font-size: 28px; font-weight: 400; line-height: 52px;
+  letter-spacing: 0.03em;
+  color: var(--c-ink-dim);
+}
+/* §7 直排单位栏：疏朗字距 0.75em */
+.rail { position: absolute; z-index: 2; writing-mode: vertical-rl; color: var(--c-ink-dim); }
+.rail.co { left: 77px; font-size: 21px; font-weight: 400; letter-spacing: 0.75em; }
+.rail.lb { left: 102px; font-size: 18px; font-weight: 400; letter-spacing: 0.08em; color: rgba(220, 224, 205, 0.8); }
+.rail.co-1 { top: 76px; }
+.rail.lb-1 { top: 76px; }
+.rail.co-2 { top: 522px; }
+.rail.lb-2 { top: 522px; }
+.rail-tick {
+  position: absolute; left: 119px; width: 1px; height: 50px;
+  background: rgba(239, 235, 220, 0.35); z-index: 2;
+}
+.tick-1 { top: 462px; }
+.tick-2 { top: 860px; }
+/* §7 直排微字段：13px 三列诗行（案例转录，尽力而为） */
+.micro {
+  position: absolute; left: 77px; top: 974px;
+  width: 96px; height: 460px;
+  writing-mode: vertical-rl;
+  font-size: 13px; font-weight: 300; line-height: 1.6;
+  letter-spacing: 0.3em;
+  color: rgba(220, 224, 205, 0.72);
+  z-index: 2;
+}
+.rail-rule {
+  position: absolute; left: 170px; top: 974px; width: 1px; height: 460px;
+  background: rgba(239, 235, 220, 0.3); z-index: 2;
+}
+/* §7 纸纹：vignette + feTurbulence soft-light（压全图含文字，案例如此） */
+.vignette {
+  position: absolute; inset: 0; z-index: 3; pointer-events: none;
+  background: radial-gradient(120% 90% at 50% 45%, transparent 60%, rgba(20, 32, 24, 0.18) 100%);
+}
+.grain {
+  position: absolute; inset: 0; z-index: 4; pointer-events: none;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='saturate' values='0'/></filter><rect width='300' height='300' filter='url(%23n)'/></svg>");
+  background-size: 300px 300px;
+  mix-blend-mode: soft-light;
+  opacity: 0.5;
+}
+</style>
+</head>
+<body>
+<div class="poster" data-od-id="newchinese-trial">
+  <div class="wm-a" aria-hidden="true">茶</div>
+  <div class="wm-b" aria-hidden="true">韵</div>
+
+  <h1 class="axis mega" data-od-id="mega-grid">茶颜<br>韵色</h1>
+
+  <div class="axis name" data-od-id="show-name">2020高雄茶文化展區</div>
+  <div class="axis name-en" data-od-id="show-name-en">Kaohsiung Tea Culture<br>Exhibition</div>
+
+  <div class="axis meta" data-od-id="meta-group">
+    <div class="lbl d-lbl">展覽日期/</div>
+    <div class="val d-val">2020.2.28～3.2</div>
+    <div class="lbl t-lbl">展覽時間/</div>
+    <div class="val t-val">10:00～18:00</div>
+    <div class="lbl p-lbl">展覽地點/</div>
+    <div class="venue">高雄展覽館——</div>
+    <div class="addr">806高雄市前镇区成功二路39号</div>
+  </div>
+
+  <div class="axis tickets" data-od-id="tickets">
+    全票：100元(一般民眾現場购票)<br>
+    優惠票：50元(持本人有效學生證之學生购票)<br>
+    免費換票：65歲以上長者憑身分證換票
+  </div>
+
+  <div class="rail co co-1" aria-hidden="true">大通國際展覽有限公司</div>
+  <div class="rail lb lb-1" aria-hidden="true">主辦單位</div>
+  <div class="rail co co-2" aria-hidden="true">上聯國際展覽有限公司</div>
+  <div class="rail lb lb-2" aria-hidden="true">執行單位</div>
+  <div class="rail-tick tick-1" aria-hidden="true"></div>
+  <div class="rail-tick tick-2" aria-hidden="true"></div>
+  <div class="micro" aria-hidden="true">年來茶在制茶師的付出與傳承，以及茶人對于茶葉茶具的探尋，賦予茶葉一種超乎想像的精準詮釋，使人能夠藉由茶湯的品飲，獲得體驗空靈的感動，這或許屬于茶，又超乎于茶葉之外，難以言語來形容。</div>
+  <div class="rail-rule" aria-hidden="true"></div>
+
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+</div>
+<script>
+(function () {
+  var p = document.querySelector('.poster');
+  function fit() {
+    var s = Math.min(window.innerWidth / 1080, window.innerHeight / 1540);
+    p.style.transform = 'translate(-50%, -50%) scale(' + s + ')';
+  }
+  window.addEventListener('resize', fit);
+  fit();
+})();
+</script>
+</body>
+</html>
